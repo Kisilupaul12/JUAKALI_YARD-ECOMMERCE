@@ -11,21 +11,22 @@ interface ProductCardProps {
     image: string;
     rating?: number;
     discount?: number;
+    originalPrice?: number;
   };
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-  const originalPrice = product.discount 
-    ? Math.round(product.price * 100 / (100 - product.discount))
-    : product.price;
-
   return (
     <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
       {/* Product Image */}
       <div className="relative h-56 overflow-hidden bg-gray-100">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl opacity-20">🛠️</div>
-        </div>
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        />
         {product.discount && (
           <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full font-bold text-sm z-10">
             -{product.discount}% OFF
@@ -60,9 +61,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             <div className="text-2xl font-bold text-gray-800">
               Ksh {product.price.toLocaleString()}
             </div>
-            {product.discount && (
+            {product.originalPrice && (
               <div className="text-sm text-gray-400 line-through">
-                Ksh {originalPrice.toLocaleString()}
+                Ksh {product.originalPrice.toLocaleString()}
               </div>
             )}
           </div>
@@ -79,4 +80,4 @@ export default function ProductCard({ product }: ProductCardProps) {
       </div>
     </div>
   );
-}
+      }
