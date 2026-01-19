@@ -1,146 +1,94 @@
 export interface Product {
-  id: number;
+  id: string;
   name: string;
-  description: string;
   price: number;
-  category: string;
-  image: string;
-  rating?: number;
-  discount?: number;
-  originalPrice?: number;
+  description: string;
+  category: 'tools' | 'furniture' | 'electronics' | 'machinery' | 'other';
+  condition: 'new' | 'like-new' | 'good' | 'fair' | 'needs-repair';
+  location: string;
+  seller: string;
+  sellerRating: number;
+  images: string[];
+  stock: number;
 }
 
 export const mockProducts: Product[] = [
   {
-    id: 1,
-    name: "Wooden Dining Chair",
-    description: "Handcrafted mahogany chair, excellent condition",
-    price: 4500,
-    originalPrice: 5500,
-    category: "Furniture",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop",
-    rating: 4.5,
-    discount: 18
-  },
-  {
-    id: 2,
-    name: "Metal Workbench",
-    description: "Sturdy industrial work table with drawers",
-    price: 12500,
-    originalPrice: 15000,
-    category: "Tools & Machinery",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w-800&auto=format&fit=crop",
-    rating: 4.7,
-    discount: 17
-  },
-  {
-    id: 3,
-    name: "Traditional Woven Basket",
-    description: "Large hand-woven sisal basket, perfect for storage",
-    price: 1800,
-    originalPrice: 2500,
-    category: "Decor",
-    image: "https://images.unsplash.com/photo-1583937443497-31e59c2d1b04?w=800&auto=format&fit=crop",
-    rating: 4.3,
-    discount: 28
-  },
-  {
-    id: 4,
-    name: "Leather Bar Stool",
-    description: "Modern leather stool with chrome legs",
-    price: 5500,
-    originalPrice: 7000,
-    category: "Furniture",
-    image: "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&auto=format&fit=crop",
-    rating: 4.4,
-    discount: 21
-  },
-  {
-    id: 5,
-    name: "Clay Cooking Pot",
-    description: "Traditional Kenyan cooking pot, 10L capacity",
-    price: 1200,
-    originalPrice: 1800,
-    category: "Kitchenware",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&auto=format&fit=crop",
-    rating: 4.6,
-    discount: 33
-  },
-  {
-    id: 6,
-    name: "Electric Drill Machine",
-    description: "Heavy-duty cordless drill with accessories",
+    id: '1',
+    name: 'Makita Cordless Drill',
     price: 8500,
-    originalPrice: 11000,
-    category: "Tools & Machinery",
-    image: "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=800&auto=format&fit=crop",
-    rating: 4.8,
-    discount: 23
+    description: 'Heavy-duty cordless drill with 2 batteries and charger. Perfect for construction work.',
+    category: 'tools',
+    condition: 'good',
+    location: 'Nairobi, Industrial Area',
+    seller: 'Jamii Hardware',
+    sellerRating: 4.8,
+    images: ['https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400'],
+    stock: 3
   },
   {
-    id: 7,
-    name: "Wooden Coffee Table",
-    description: "Solid oak coffee table with glass top",
-    price: 9500,
-    originalPrice: 12000,
-    category: "Furniture",
-    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&auto=format&fit=crop",
-    rating: 4.5,
-    discount: 21
+    id: '2',
+    name: 'Office Executive Desk',
+    price: 12000,
+    description: 'Solid mahogany wood desk with drawers. Slight scratches but structurally perfect.',
+    category: 'furniture',
+    condition: 'fair',
+    location: 'Mombasa, Nyali',
+    seller: 'Furniture Palace',
+    sellerRating: 4.5,
+    images: ['https://images.unsplash.com/photo-1497366216548-37526070297c?w=400'],
+    stock: 1
   },
   {
-    id: 8,
-    name: "Gardening Tool Set",
-    description: "Complete gardening kit with 12 tools",
-    price: 3800,
-    originalPrice: 5000,
-    category: "Gardening",
-    image: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop",
-    rating: 4.4,
-    discount: 24
+    id: '3',
+    name: 'Industrial Juki Sewing Machine',
+    price: 45000,
+    description: 'Professional sewing machine, lightly used for 6 months. Includes all accessories.',
+    category: 'machinery',
+    condition: 'like-new',
+    location: 'Nakuru',
+    seller: 'Tailor Supplies Ltd',
+    sellerRating: 4.9,
+    images: ['https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400'],
+    stock: 2
   },
   {
-    id: 9,
-    name: "Car Battery Charger",
-    description: "Automatic 12V battery charger for vehicles",
-    price: 6500,
-    originalPrice: 8500,
-    category: "Automotive",
-    image: "https://images.unsplash.com/photo-1562158018-2c1f399b8e8d?w=800&auto=format&fit=crop",
-    rating: 4.6,
-    discount: 24
+    id: '4',
+    name: 'Bosch Angle Grinder',
+    price: 5500,
+    description: 'Powerful angle grinder with 3 cutting discs. Works perfectly.',
+    category: 'tools',
+    condition: 'good',
+    location: 'Kisumu',
+    seller: 'Tool Masters',
+    sellerRating: 4.7,
+    images: ['https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400'],
+    stock: 5
   },
   {
-    id: 10,
-    name: "Exercise Bike",
-    description: "Magnetic resistance exercise bike with monitor",
-    price: 22000,
-    originalPrice: 28000,
-    category: "Sport & Fitness",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&auto=format&fit=crop",
-    rating: 4.7,
-    discount: 21
+    id: '5',
+    name: 'Generator 5KVA',
+    price: 75000,
+    description: 'Diesel generator, reliable for backup power. Recently serviced.',
+    category: 'machinery',
+    condition: 'good',
+    location: 'Eldoret',
+    seller: 'Power Solutions',
+    sellerRating: 4.6,
+    images: ['https://images.unsplash.com/photo-1590490360182-c33d57733427?w=400'],
+    stock: 2
   },
   {
-    id: 11,
-    name: "Smart TV 43-inch",
-    description: "LED Smart TV with built-in streaming apps",
-    price: 35000,
-    originalPrice: 45000,
-    category: "Electronics",
-    image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=800&auto=format&fit=crop",
-    rating: 4.8,
-    discount: 22
-  },
-  {
-    id: 12,
-    name: "Office Desk",
-    description: "Modern office desk with cable management",
-    price: 12500,
-    originalPrice: 16000,
-    category: "Furniture",
-    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop",
-    rating: 4.5,
-    discount: 22
+    id: '6',
+    name: 'Leather Office Chair',
+    price: 8000,
+    description: 'Executive leather chair, comfortable and adjustable. Minor wear on armrests.',
+    category: 'furniture',
+    condition: 'fair',
+    location: 'Nairobi, Westlands',
+    seller: 'Office Furniture Kenya',
+    sellerRating: 4.4,
+    images: ['https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400'],
+    stock: 4
   }
 ];
